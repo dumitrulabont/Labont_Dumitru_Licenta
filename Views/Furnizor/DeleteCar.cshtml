@@ -1,0 +1,65 @@
+﻿@model Labont_Dumitru_Licenta.Models.Car
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Sterge</h1>
+
+<h3>Esti sigur ca doresi sa elimini acest automobil ?</h3>
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarDetail.Brand)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarDetail.Brand)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarDetail.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarDetail.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarDetail.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarDetail.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarDetail.Color)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarDetail.Color)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarDetail.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarDetail.Year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarDetail.CarType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarDetail.CarType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsAvailable)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IsAvailable)
+        </dd>
+        
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Sterge automobilul" class="btn btn-danger" /> |
+        <a asp-action="Index">Intoarce-te la lista</a>
+    </form>
+</div>

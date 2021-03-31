@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Labont_Dumitru_Licenta.Models.Request>
+@{
+    ViewData["Title"] = "Cererile Mele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinishDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car.CarDetail.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car.CarDetail.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestState)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinishDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Car.CarDetail.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Car.CarDetail.Model)
+                </td>
+                <td>
+                    @if (item.RequestState == null)
+                    {
+                        <div>Cererea nu a primit momenta un raspuns</div>
+                    }
+                    else if (item.RequestState == true)
+                    {
+                        <div>Cererea a fost acceptata</div>
+                        @*<a asp-action="Contacts" asp-route-id="@item.ReciverID">Date de contact ale proprietarului</a>*@
+                        <form asp-action="Contacts" method="post">
+                            <input type="hidden" name="id" value="@item.ReciverID"  asp-for="@item.ReciverID"/>
+                            <input type="submit" value="Date de contact" />
+                        </form>
+                    }
+                    else
+                    {
+                        <div>Cererea a fost respinsa</div>
+                    }
+                </td>
+                
+            </tr>
+        }
+    </tbody>

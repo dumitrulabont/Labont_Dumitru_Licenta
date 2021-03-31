@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Labont_Dumitru_Licenta.Models.Car>
+<h1>Masinile mele </h1>
+
+    @*
+    <form asp-controller="Furnizor" asp-action="EditLocation" method="get">
+        <input type="submit" value="Editare Locatie" />
+    </form>
+    <a asp-action="MyRequests">Cererile mele</a>
+    <form asp-controller="Furnizor" asp-action="AddCar" method="get">
+        <input type="submit" value="Adaugati o masina" />
+    </form>*@
+    
+    <table class="table">
+        <thead>
+            <tr>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.CarDetail.Brand)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CarDetail.Model)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CarDetail.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CarDetail.Color)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CarDetail.Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CarDetail.CarType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsAvailable)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <!--<td class="w-25">-->
+                        @*<img src="@item.Image" class="img-fluid img-thumbnail">*@
+                    <!--</td>-->
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarDetail.Brand)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarDetail.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarDetail.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarDetail.Color)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarDetail.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarDetail.CarType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsAvailable)
+                    </td>
+                    <td>
+                        <a asp-action="EditCar" asp-route-id="@item.ID">Editare masina</a> |
+                        <a asp-action="DetailsCar" asp-route-id="@item.ID">Detalii</a> |
+                        <a asp-action="DeleteCar" asp-route-id="@item.ID">Sterge masina</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+@*<div class="row">
+    @foreach (var item in Model)
+    {
+    <div class="row">
+       
+            
+        <div class="col-2 p-5">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="@item.Image"  asp-append-version="true"  alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">
+                        <div class="row">
+                            <div class="col-12">
+                                @Html.DisplayFor(modelItem => item.CarDetail.Brand)
+
+                            </div>
+                            <div class="col-12">
+                                @Html.DisplayFor(modelItem => item.CarDetail.Model)
+
+                            </div>
+                            <div class="col-12">
+                                @Html.DisplayFor(modelItem => item.CarDetail.Price)
+
+                            </div>
+
+                        </div>
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    }
+</div>*@

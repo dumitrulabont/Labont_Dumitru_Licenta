@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Labont_Dumitru_Licenta.Models.Car>
+@{
+    ViewData["Title"] = "Pagina Principala";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Pagina Consumator</h1>
+
+<a asp-action="ShowMyRequests">Cererile Mele</a>
+<form asp-controller="Consumator" asp-action="Index" method="get">
+    Masina: <input type="text" name="BrandAndModel" />
+    An:    <input type="number" name="Year" />
+    Locatia: <input type="text" name="Location" value="" />
+    <input type="submit" value="Cautati" />
+</form>
+
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            @*<div class="col-6">
+                    <img class="img-thumbnail" src="https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/body-image/public/1-corvette-stingray-c8-2019-fd-hr-hero-front_0.jpg?itok=SEYe_vLy" alt="Alternate Text" />
+                </div>*@
+
+            <div class="col-2 p-5">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" style="width: 100%;height: 15vw; object-fit: cover; " src="@item.Image" asp-append-version="true" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <div class="row">
+                                <div class="col-12">
+                                    @Html.DisplayNameFor(modelItem => item.CarDetail.Brand) : @Html.DisplayFor(modelItem => item.CarDetail.Brand)
+                                </div>
+                                <div class="col-12">
+                                    @Html.DisplayNameFor(modelItem => item.CarDetail.Model) : @Html.DisplayFor(modelItem => item.CarDetail.Model)
+                                </div>
+                                <div class="col-12">
+                                    @Html.DisplayNameFor(modelItem => item.CarDetail.Price) : @Html.DisplayFor(modelItem => item.CarDetail.Price)
+
+                                </div>
+                                <div class="col-12">
+                                    Locatia:  @Html.DisplayFor(modelItem => item.CarOwner.UserLocation.County), @Html.DisplayFor(modelItem => item.CarOwner.UserLocation.City)  
+
+                                </div>
+                                <div class="col-12">
+                                    <a asp-action="DetailsCar" asp-route-id="@item.ID">Detalii Masina</a>
+                                </div>
+                                <div class="col-12">
+                                    <a asp-action="RequestCar" asp-route-id="@item.ID">Trimiteti cerere de inchiriere </a>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+
+
+
+

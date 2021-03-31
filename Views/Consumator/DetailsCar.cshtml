@@ -1,0 +1,70 @@
+﻿@model Labont_Dumitru_Licenta.Models.Car
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Detalii referitoare la masina: </h1>
+<div class="row">
+    <div class="col-sm-8">
+        <img class="rounded img-fluid " style="width: 30vw;height: 15vw; object-fit: contain; margin-left: -3%;" src="@Html.DisplayFor(model => model.Image)" alt="Card image cap">
+    </div>
+</div>
+
+<div>
+    <h4>Masina:</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarDetail.Brand)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarDetail.Brand)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarDetail.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarDetail.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarDetail.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarDetail.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarDetail.Color)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarDetail.Color)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarDetail.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarDetail.Year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarDetail.CarType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarDetail.CarType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsAvailable)
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.IsAvailable)
+            {
+                <div>Masina este disponibila</div>
+            }
+            else
+            {
+                <div>Masina nu este disponibila</div>
+            }
+        </dd>
+
+    </dl>
+</div>
